@@ -1,0 +1,53 @@
+{%extends 'layout.html'%}
+{%block title%}Login{%endblock%}
+{%block content%}
+
+<div class="card text-center">
+  
+  <div class="card-body">
+    <h4 class="card-title">LOGIN</h4>
+    
+<form action="", method="post">
+    <div class="text-center">
+        {{ form.hidden_tag() }}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            {{form.username.label}}
+            {{ form.username(size=32)}}
+        </div>
+    
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+        {{form.password.label}}
+        {{ form.password(size=32)}}
+        </div>
+    
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+            <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>
+        </div>
+    
+        <div class="col">
+            <!-- Simple link -->
+            <!--<a href="#!">Forgot password?</a>-->
+        </div>
+        </div>
+    
+        <!-- Submit button -->
+        {{form.submit()}}
+  
+   
+   
+      
+    
+    </div>
+  </form>
+</div>
+</div>
+
+{%endblock%}

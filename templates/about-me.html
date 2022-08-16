@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{%block title%}Home{%endblock%}
+{%block content%}
+<main role="main" class="container">
+    <div class="jumbotron">
+        <div class="text-center">
+            {%autoescape false%}
+            <p class="lead">{{posts[1]['content'].replace("\n","<br>")}}</p>
+            {%endautoescape%}
+        </div>
+        <!--My plataforms logos-->
+        <div class="text-center" style="margin-top:100px;">
+            {%for logo in mylogos:%}
+            <img src="{{url_for('static',filename='img/mylogos/'+logo)}}"  class="img-fluid"  width="50" height="50">
+            {%endfor%}
+
+        </div>
+    </div>
+    
+
+
+{%endblock%}

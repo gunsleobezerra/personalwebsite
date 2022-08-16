@@ -1,0 +1,132 @@
+{%extends 'layout.html'%}
+{%block title%}Timer{%endblock%}
+{%block content%}
+
+
+    <!--Paragrafo centralizado na tela escrito temporizador-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">TEMPORIZADOR</h1>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="timer-select" style="padding: 10%;">
+        <!--Input Hora-->
+        <div class="row">
+            <div class="col-md-4">
+                <input type="number" class="form-control" id="hora" placeholder="Hora">
+            </div>
+            <!--Input Minuto-->
+            <div class="col-md-4">
+                <input type="number" class="form-control" id="minuto" placeholder="Minuto">
+            </div>
+            <!--Input Segundo-->
+            <div class="col-md-4">
+                <input type="number" class="form-control" id="segundo" placeholder="Segundo">
+            </div>
+        </div>
+    </div>
+        <div class="buttons_timer" style="/* justify-content: center; *//* align-items: center; */text-align: center;margin-top: 1em;">
+        <!--Botao Iniciar-->
+        <!--O botão É CENTRALIZADO-->
+        
+            <button class="btn btn-primary" id="iniciar">Iniciar</button>
+          
+        <!--Botao Pausar-->
+        <!--O botão É CENTRALIZADO-->
+        
+            <button class="btn btn-primary" id="pausar">Pausar</button>
+        </div>
+        
+        <!--Timer display centralizado-->
+        <div class="col-md-70">
+            <div class="row">
+                <div class="col-md" >
+                    <div class="timer-display" >
+                        <h1 class="text-center" id="timer" style="justify-content: center">00:00:00</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!--Script de funcionamento do temporizador-->
+            <script>
+                //Variaveis globais
+                var hora = document.getElementById('hora');
+                var minuto = document.getElementById('minuto');
+                var segundo = document.getElementById('segundo');
+                var timer = document.getElementById('timer');
+                var iniciar = document.getElementById('iniciar');
+                var pausar = document.getElementById('pausar');
+                var intervalo;
+                var contador = 0;
+                
+                //inicia temporizador
+                iniciar.addEventListener('click', function(){
+
+                    //Verifica se os campos estão vazios
+                    if(hora.value == ''){
+                        hora.value = "00";
+                    }
+                    if(minuto.value == ''){
+                        minuto.value = "00";
+                    }
+                    if(segundo.value == ''){
+                        segundo.value = "00";
+                    }
+
+                    timer.innerHTML = hora.value + ':' + minuto.value + ':' + segundo.value;
+
+                    var segundos_total = parseInt( hora.value) * 3600 + parseInt(minuto.value) * 60 + parseInt(segundo.value);
+                    var minutos = 0;
+                    var horas = 0;
+                    contador = 0;
+                    //decrementa o timer a cada segundo
+                    intervalo = setInterval(function(){
+                        contador++;
+                        segundos = (segundos_total - contador)%60;
+                        minutos = parseInt((segundos_total - contador)/60)%60;
+                        horas = parseInt((segundos_total - contador)/3600);
+
+                        //Verifica se o segundo passou de 60
+                        if(segundos < 10){
+                            segundos = '0' + segundos;
+                        }
+                        //Verifica se o minuto passou de 60
+                        if(minutos < 10){
+                            minutos = '0' + minutos;
+                        }
+                        //Verifica se a hora passou de 24
+                        if(horas < 10){
+                            horas = '0' + horas;
+                        }
+
+                        timer.innerHTML = horas + ':' + minutos + ':' + segundos;
+
+                        //Verifica se o contador chegou a zero
+                        if(timer.innerHTML == '00:00:00'){
+                            clearInterval(intervalo);
+                            
+                        }
+                    }, 1000);
+                    
+                    
+                });
+
+
+               
+
+            </script>
+
+            
+    
+
+
+    
+    
+
+
+{%endblock%}

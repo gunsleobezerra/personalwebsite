@@ -1,0 +1,56 @@
+/* A Tag .h1 tem cor vermelha e é cnetralizada no meio da tela.*/
+h1 {
+  color: rgb(230, 132, 5);
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 100px;
+}
+
+.mynavbar-font {
+  font-family: 'Anek Odia', sans-serif;
+}
+.navbar-next{
+  margin-bottom: 5%;
+}
+/* A classe navbar é centralizada no meio da tela.*/
+.allcontent {
+  text-align: center;
+  margin-top: 5%;
+}
+.data-content{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 10%;
+  
+}
+
+.canvas-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  z-index: 1;
+}
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color: white;
+  font-size: 40px;
+  text-shadow: 3px 3px 3px #000;
+  line-height: 70px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+
+
+  

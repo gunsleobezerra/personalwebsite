@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{%block title%}Home{%endblock%}
+
+{%block content%}
+
+
+
+
+<div>
+  
+  <div class="container">
+    
+    <div class="row justify-content-center align-items-center ">
+        <!--DIV de icons Bootstrap-->
+        <div class="col-sm-1">  </div>
+    <div class="col-sm-2">
+    
+  </div> 
+  <div class="col-sm-2">
+  
+  </div>
+  <div class="col-sm-2">
+    
+  </div>
+</div>
+      <div class="row justify-content-center ali">
+        
+        
+          <div>
+            
+              <div class="card text-center" style="width: 18rem; flex-direction: column">
+                  <img src="{{url_for('static',filename="img/me.png")}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{posts[0]['title']}}</h5>
+                    <p class="card-text">{{posts[0]['content']}}</p>
+                    <a href="{{url_for('about')}}" class="btn btn-primary">Saiba Mais</a>
+                  </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+</div>
+
+
+    
+{%endblock%}
